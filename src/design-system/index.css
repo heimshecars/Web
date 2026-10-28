@@ -1,0 +1,9 @@
+/*
+ * Design system entry point. Imported once, by the root layout.
+ *   tokens.css      — colours, type, spacing, sizes, breakpoints
+ *   animations.css  — all motion
+ *   base.css        — reset + element defaults
+ */
+@import url("./tokens.css");
+@import url("./animations.css");
+@import url("./base.css");

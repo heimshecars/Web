@@ -1,0 +1,94 @@
+/*
+ * Base element styles — a small reset plus defaults that read from tokens.
+ * No raw values here either; everything comes from tokens.css.
+ * Selectors are kept at element-level (or :where) specificity so any
+ * component class always wins over the reset.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  color-scheme: light;
+  text-size-adjust: 100%;
+  scrollbar-color: var(--color-border-strong) transparent;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  background-color: var(--color-canvas);
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  overflow-wrap: break-word;
+}
+
+p {
+  overflow-wrap: break-word;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+:where(ul, ol)[role="list"] {
+  padding: 0;
+  list-style: none;
+}
+
+:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+::selection {
+  color: var(--color-text);
+  background-color: var(--color-selection);
+}
+
+[hidden] {
+  display: none !important;
+}

@@ -1,0 +1,105 @@
+.text,
+.heading {
+  color: var(--color-text);
+}
+
+/* ─── Body variants ─── */
+.text[data-variant="lead"] {
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+}
+
+.text[data-variant="body"] {
+  font-size: var(--text-md);
+  line-height: var(--leading-normal);
+}
+
+.text[data-variant="bodySm"] {
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+}
+
+.text[data-variant="label"] {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+}
+
+.text[data-variant="caption"] {
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+}
+
+.text[data-variant="overline"] {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.text[data-variant="mono"] {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  white-space: nowrap; /* refs and number plates never break */
+}
+
+/* ─── Headings ─── */
+.heading {
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+
+.heading[data-size="display"] {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-heavy);
+}
+
+.heading[data-size="xl"] {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-heavy);
+}
+
+.heading[data-size="lg"] { font-size: var(--text-xl); }
+.heading[data-size="md"] { font-size: var(--text-lg); }
+
+.heading[data-size="sm"] {
+  font-size: var(--text-md);
+  letter-spacing: var(--tracking-normal);
+}
+
+/* ─── Weight ─── */
+.text[data-weight="regular"] { font-weight: var(--weight-regular); }
+.text[data-weight="medium"] { font-weight: var(--weight-medium); }
+.text[data-weight="semibold"] { font-weight: var(--weight-semibold); }
+.text[data-weight="bold"] { font-weight: var(--weight-bold); }
+
+/* ─── Tone ─── */
+[data-tone="muted"]:is(.text, .heading) { color: var(--color-text-muted); }
+[data-tone="subtle"]:is(.text, .heading) { color: var(--color-text-subtle); }
+[data-tone="brand"]:is(.text, .heading) { color: var(--color-brand-text); }
+[data-tone="accent"]:is(.text, .heading) { color: var(--color-accent-text); }
+[data-tone="success"]:is(.text, .heading) { color: var(--color-success-text); }
+[data-tone="warning"]:is(.text, .heading) { color: var(--color-warning-text); }
+[data-tone="danger"]:is(.text, .heading) { color: var(--color-danger-text); }
+[data-tone="inverse"]:is(.text, .heading) { color: var(--color-text-inverse); }
+[data-tone="inherit"]:is(.text, .heading) { color: inherit; }
+
+/* ─── Modifiers ─── */
+.text[data-align="start"] { text-align: start; }
+.text[data-align="center"] { text-align: center; }
+.text[data-align="end"] { text-align: end; }
+
+[data-numeric]:is(.text, .heading) {
+  font-variant-numeric: tabular-nums;
+}
+
+.text[data-truncate] {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

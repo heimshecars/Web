@@ -1,0 +1,14 @@
+.link {
+  font-weight: var(--weight-semibold);
+  color: var(--color-brand-text);
+  text-decoration: underline;
+  text-decoration-thickness: var(--hairline);
+  text-underline-offset: var(--underline-offset);
+  border-radius: var(--radius-xs);
+  transition: var(--transition-colors);
+}
+
+.link:hover {
+  color: var(--color-brand-hover);
+  text-decoration-thickness: var(--border-width-thick);
+}

@@ -1,0 +1,65 @@
+.group {
+  display: inline-flex;
+  align-self: flex-start;
+  gap: var(--space-3xs);
+  min-width: 0;
+  padding: var(--space-3xs);
+  background-color: var(--color-surface-hover);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.legend {
+  position: absolute;
+  width: var(--hairline);
+  height: var(--hairline);
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.segment {
+  position: relative;
+  display: inline-flex;
+  gap: var(--space-2xs);
+  align-items: center;
+  justify-content: center;
+  height: calc(var(--control-height-md) - var(--space-2xs) - var(--border-width-thick));
+  padding-inline: var(--control-padding-md);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-interactive);
+}
+
+.group[data-size="sm"] .segment {
+  height: calc(var(--control-height-sm) - var(--space-2xs) - var(--border-width-thick));
+  padding-inline: var(--control-padding-sm);
+}
+
+.segment:hover {
+  color: var(--color-text);
+}
+
+.segment:has(:checked) {
+  color: var(--color-brand-text);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.segment:has(:focus-visible) {
+  outline: var(--focus-ring-width) solid var(--color-focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.radio {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  appearance: none;
+  cursor: pointer;
+  opacity: 0;
+}

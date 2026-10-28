@@ -1,0 +1,9 @@
+.divider {
+  width: 100%;
+  border: 0;
+  border-top: var(--border-width) solid var(--color-border);
+}
+
+.divider[data-spacing="sm"] { margin-block: var(--space-sm); }
+.divider[data-spacing="md"] { margin-block: var(--space-md); }
+.divider[data-spacing="lg"] { margin-block: var(--space-lg); }

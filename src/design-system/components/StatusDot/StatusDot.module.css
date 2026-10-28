@@ -1,0 +1,18 @@
+.dot {
+  display: inline-block;
+  flex-shrink: 0;
+  width: var(--dot-size);
+  height: var(--dot-size);
+  background-color: var(--color-text-subtle);
+  border-radius: var(--radius-full);
+}
+
+.dot[data-tone="success"] { background-color: var(--color-success); }
+.dot[data-tone="warning"] { background-color: var(--color-warning); }
+.dot[data-tone="danger"] { background-color: var(--color-danger); }
+.dot[data-tone="brand"] { background-color: var(--color-brand); }
+.dot[data-tone="accent"] { background-color: var(--color-accent); }
+
+.dot[data-pulse] {
+  animation: var(--animate-pulse);
+}

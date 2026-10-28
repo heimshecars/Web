@@ -1,0 +1,167 @@
+/*
+ * ─────────────────────────────────────────────────────────────────────────
+ *  HEIMSHE CARS — ANIMATIONS
+ *  The ONE place where motion is defined: durations, easings, transition
+ *  presets, keyframes and ready-made animations. Components only ever write
+ *    transition: var(--transition-…);
+ *    animation:  var(--animate-…);
+ *  `npm run lint` rejects raw durations, easings and @keyframes elsewhere.
+ *
+ *  Reduced motion is handled once, at the bottom of this file.
+ * ─────────────────────────────────────────────────────────────────────────
+ */
+
+:root {
+  /* ─── Durations ─── */
+  --duration-instant: 60ms;
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+  --duration-slower: 480ms;
+  --duration-spin: 800ms;
+  --duration-shimmer: 1600ms;
+  --duration-pulse: 2000ms;
+
+  /* ─── Easings ─── */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1); /* most UI movement */
+  --ease-enter: cubic-bezier(0, 0, 0.2, 1); /* things appearing */
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1); /* things leaving */
+  --ease-emphasis: cubic-bezier(0.34, 1.4, 0.64, 1); /* small overshoot */
+  --ease-linear: linear;
+
+  /* ─── Transition presets ─── */
+  --transition-colors:
+    color var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+  --transition-interactive:
+    color var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard),
+    opacity var(--duration-fast) var(--ease-standard);
+  --transition-transform: transform var(--duration-base) var(--ease-standard);
+  --transition-opacity: opacity var(--duration-base) var(--ease-standard);
+  --transition-layout:
+    width var(--duration-slow) var(--ease-standard),
+    grid-template-columns var(--duration-slow) var(--ease-standard);
+
+  /* ─── Press feedback ─── */
+  --press-scale: scale(0.97);
+
+  /* ─── Ready-made animations ─── */
+  --animate-page-enter: hs-page-enter var(--duration-slow) var(--ease-enter) both;
+  --animate-fade-in: hs-fade-in var(--duration-base) var(--ease-enter) both;
+  --animate-slide-up: hs-slide-up var(--duration-base) var(--ease-enter) both;
+  --animate-scale-in: hs-scale-in var(--duration-base) var(--ease-emphasis) both;
+  --animate-dialog-in: hs-dialog-in var(--duration-slow) var(--ease-emphasis) both;
+  --animate-backdrop-in: hs-fade-in var(--duration-base) var(--ease-enter) both;
+  --animate-spin: hs-spin var(--duration-spin) var(--ease-linear) infinite;
+  --animate-shimmer: hs-shimmer var(--duration-shimmer) var(--ease-standard) infinite;
+  --animate-pulse: hs-pulse var(--duration-pulse) var(--ease-standard) infinite;
+}
+
+/* ─── Keyframes ─── */
+@keyframes hs-page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-xs));
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hs-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hs-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-sm));
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hs-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hs-dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-sm)) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hs-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes hs-shimmer {
+  from {
+    background-position: 100% 0;
+  }
+
+  to {
+    background-position: -100% 0;
+  }
+}
+
+@keyframes hs-pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--color-success);
+  }
+
+  70%,
+  100% {
+    box-shadow: 0 0 0 var(--space-xs) transparent;
+  }
+}
+
+/* ─── Reduced motion: one switch for the whole app ─── */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 1ms;
+    --duration-base: 1ms;
+    --duration-slow: 1ms;
+    --duration-slower: 1ms;
+    --press-scale: none;
+    --animate-page-enter: none;
+    --animate-slide-up: none;
+    --animate-scale-in: none;
+    --animate-dialog-in: none;
+    --animate-shimmer: none;
+    --animate-pulse: none;
+  }
+}

@@ -1,0 +1,87 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  padding: var(--space-md) var(--space-sm);
+  overflow-y: auto;
+  background-color: var(--color-chrome);
+  border-right: var(--border-width) solid var(--color-chrome-border);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.sectionLabel {
+  padding-inline: var(--space-sm);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+}
+
+.link {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+  height: var(--control-height-md);
+  padding-inline: var(--space-sm);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-muted);
+  border-radius: var(--radius-md);
+  transition: var(--transition-interactive);
+}
+
+.link:hover {
+  color: var(--color-text);
+  background-color: var(--color-chrome-hover);
+}
+
+.link:active {
+  transform: var(--press-scale);
+}
+
+.link[aria-current="page"] {
+  color: var(--color-brand-text);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-indicator), var(--shadow-xs);
+}
+
+.label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ─── Icon rail on narrower screens ─── */
+@media (--bp-below-lg) {
+  .sidebar {
+    align-items: center;
+    padding-inline: var(--space-xs);
+  }
+
+  .sectionLabel,
+  .label {
+    position: absolute;
+    width: var(--hairline);
+    height: var(--hairline);
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .link {
+    justify-content: center;
+    width: var(--control-height-lg);
+    height: var(--control-height-lg);
+    padding: 0;
+  }
+
+  .link[aria-current="page"] {
+    box-shadow: var(--shadow-indicator-top), var(--shadow-xs);
+  }
+}

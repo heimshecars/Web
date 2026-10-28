@@ -1,0 +1,9 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  max-width: var(--content-max-width);
+  padding: var(--content-padding);
+  margin-inline: auto;
+  animation: var(--animate-page-enter);
+}

@@ -1,0 +1,101 @@
+.badge {
+  --badge-solid: var(--color-text-muted);
+  --badge-soft: var(--color-surface-hover);
+  --badge-text: var(--color-text-muted);
+  --badge-on-solid: var(--color-text-inverse);
+
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: var(--space-2xs);
+  align-items: center;
+  padding: var(--space-3xs) var(--space-xs);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-snug);
+  white-space: nowrap;
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-full);
+}
+
+.badge[data-size="sm"] {
+  padding: 0 var(--space-2xs);
+  font-size: var(--text-2xs);
+}
+
+/* ─── Tones ─── */
+.badge[data-tone="brand"] {
+  --badge-solid: var(--color-brand);
+  --badge-soft: var(--color-brand-soft);
+  --badge-text: var(--color-brand-text);
+  --badge-on-solid: var(--color-on-brand);
+}
+
+.badge[data-tone="accent"] {
+  --badge-solid: var(--color-accent);
+  --badge-soft: var(--color-accent-soft);
+  --badge-text: var(--color-accent-text);
+  --badge-on-solid: var(--color-on-accent);
+}
+
+.badge[data-tone="success"] {
+  --badge-solid: var(--color-success);
+  --badge-soft: var(--color-success-soft);
+  --badge-text: var(--color-success-text);
+  --badge-on-solid: var(--color-on-status);
+}
+
+.badge[data-tone="warning"] {
+  --badge-solid: var(--color-warning);
+  --badge-soft: var(--color-warning-soft);
+  --badge-text: var(--color-warning-text);
+  --badge-on-solid: var(--color-on-accent);
+}
+
+.badge[data-tone="danger"] {
+  --badge-solid: var(--color-danger);
+  --badge-soft: var(--color-danger-soft);
+  --badge-text: var(--color-danger-text);
+  --badge-on-solid: var(--color-on-status);
+}
+
+.badge[data-tone="info"] {
+  --badge-solid: var(--color-info);
+  --badge-soft: var(--color-info-soft);
+  --badge-text: var(--color-info-text);
+  --badge-on-solid: var(--color-on-status);
+}
+
+.badge[data-tone="violet"] {
+  --badge-solid: var(--color-violet);
+  --badge-soft: var(--color-violet-soft);
+  --badge-text: var(--color-violet-text);
+  --badge-on-solid: var(--color-on-status);
+}
+
+/* ─── Variants ─── */
+.badge[data-variant="soft"] {
+  color: var(--badge-text);
+  background-color: var(--badge-soft);
+}
+
+.badge[data-variant="solid"] {
+  color: var(--badge-on-solid);
+  background-color: var(--badge-solid);
+}
+
+.badge[data-variant="outline"] {
+  color: var(--badge-text);
+  background-color: var(--color-surface);
+  border-color: currentcolor;
+}
+
+.dot {
+  width: var(--dot-size);
+  height: var(--dot-size);
+  background-color: var(--badge-solid);
+  border-radius: var(--radius-full);
+}
+
+.badge[data-variant="solid"] .dot {
+  background-color: currentcolor;
+}

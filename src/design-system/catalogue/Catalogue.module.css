@@ -1,0 +1,120 @@
+/* Catalogue-only styles (the /design-system page). Still tokens only. */
+
+.swatch {
+  display: block;
+  height: var(--control-height-lg);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.swatch[data-token="canvas"] { background-color: var(--color-canvas); }
+.swatch[data-token="surface"] { background-color: var(--color-surface); }
+.swatch[data-token="surface-sunken"] { background-color: var(--color-surface-sunken); }
+.swatch[data-token="surface-hover"] { background-color: var(--color-surface-hover); }
+.swatch[data-token="chrome"] { background-color: var(--color-chrome); }
+.swatch[data-token="chrome-hover"] { background-color: var(--color-chrome-hover); }
+.swatch[data-token="text"] { background-color: var(--color-text); }
+.swatch[data-token="text-muted"] { background-color: var(--color-text-muted); }
+.swatch[data-token="text-subtle"] { background-color: var(--color-text-subtle); }
+.swatch[data-token="border"] { background-color: var(--color-border); }
+.swatch[data-token="border-strong"] { background-color: var(--color-border-strong); }
+.swatch[data-token="border-control"] { background-color: var(--color-border-control); }
+.swatch[data-token="brand"] { background-color: var(--color-brand); }
+.swatch[data-token="brand-hover"] { background-color: var(--color-brand-hover); }
+.swatch[data-token="brand-soft"] { background-color: var(--color-brand-soft); }
+.swatch[data-token="accent"] { background-color: var(--color-accent); }
+.swatch[data-token="accent-hover"] { background-color: var(--color-accent-hover); }
+.swatch[data-token="accent-soft"] { background-color: var(--color-accent-soft); }
+.swatch[data-token="success"] { background-color: var(--color-success); }
+.swatch[data-token="success-soft"] { background-color: var(--color-success-soft); }
+.swatch[data-token="warning"] { background-color: var(--color-warning); }
+.swatch[data-token="warning-soft"] { background-color: var(--color-warning-soft); }
+.swatch[data-token="danger"] { background-color: var(--color-danger); }
+.swatch[data-token="danger-soft"] { background-color: var(--color-danger-soft); }
+.swatch[data-token="info"] { background-color: var(--color-info); }
+.swatch[data-token="info-soft"] { background-color: var(--color-info-soft); }
+.swatch[data-token="violet"] { background-color: var(--color-violet); }
+.swatch[data-token="violet-soft"] { background-color: var(--color-violet-soft); }
+
+.scaleLabel {
+  width: var(--width-xs);
+}
+
+.spaceBar {
+  display: block;
+  height: var(--space-sm);
+  background-color: var(--color-brand);
+  border-radius: var(--radius-xs);
+}
+
+.spaceBar[data-size="3xs"] { width: var(--space-3xs); }
+.spaceBar[data-size="2xs"] { width: var(--space-2xs); }
+.spaceBar[data-size="xs"] { width: var(--space-xs); }
+.spaceBar[data-size="sm"] { width: var(--space-sm); }
+.spaceBar[data-size="md"] { width: var(--space-md); }
+.spaceBar[data-size="lg"] { width: var(--space-lg); }
+.spaceBar[data-size="xl"] { width: var(--space-xl); }
+.spaceBar[data-size="2xl"] { width: var(--space-2xl); }
+.spaceBar[data-size="3xl"] { width: var(--space-3xl); }
+
+.radiusBox,
+.shadowBox {
+  display: block;
+  width: var(--control-height-lg);
+  height: var(--control-height-lg);
+  background-color: var(--color-brand-soft);
+  border: var(--border-width) solid var(--color-border);
+}
+
+.radiusBox[data-radius="xs"] { border-radius: var(--radius-xs); }
+.radiusBox[data-radius="sm"] { border-radius: var(--radius-sm); }
+.radiusBox[data-radius="md"] { border-radius: var(--radius-md); }
+.radiusBox[data-radius="lg"] { border-radius: var(--radius-lg); }
+.radiusBox[data-radius="xl"] { border-radius: var(--radius-xl); }
+
+.shadowBox {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+}
+
+.shadowBox[data-shadow="xs"] { box-shadow: var(--shadow-xs); }
+.shadowBox[data-shadow="sm"] { box-shadow: var(--shadow-sm); }
+.shadowBox[data-shadow="md"] { box-shadow: var(--shadow-md); }
+.shadowBox[data-shadow="lg"] { box-shadow: var(--shadow-lg); }
+
+.iconCell {
+  color: var(--color-text);
+  border-radius: var(--radius-md);
+  transition: var(--transition-colors);
+}
+
+.iconCell:hover {
+  color: var(--color-brand-text);
+  background-color: var(--color-surface-sunken);
+}
+
+.motionBox {
+  display: block;
+  width: var(--skeleton-block-sm);
+  height: var(--skeleton-block-sm);
+  background-color: var(--color-brand);
+  border-radius: var(--radius-lg);
+}
+
+.motionBox[data-motion="pageEnter"] { animation: var(--animate-page-enter); }
+.motionBox[data-motion="fadeIn"] { animation: var(--animate-fade-in); }
+.motionBox[data-motion="slideUp"] { animation: var(--animate-slide-up); }
+.motionBox[data-motion="scaleIn"] { animation: var(--animate-scale-in); }
+.motionBox[data-motion="dialogIn"] { animation: var(--animate-dialog-in); }
+
+.motionBox[data-motion="shimmer"] {
+  background-color: var(--color-skeleton);
+  background-image: linear-gradient(
+    90deg,
+    var(--color-skeleton) 0%,
+    var(--color-skeleton-shine) 50%,
+    var(--color-skeleton) 100%
+  );
+  background-size: 200% 100%;
+  animation: var(--animate-shimmer);
+}

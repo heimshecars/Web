@@ -1,0 +1,48 @@
+.shell {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar main";
+  grid-template-rows: var(--shell-header-height) minmax(0, 1fr);
+  grid-template-columns: var(--shell-sidebar-width) minmax(0, 1fr);
+  height: 100dvh;
+  overflow: hidden;
+}
+
+@media (--bp-below-lg) {
+  .shell {
+    grid-template-columns: var(--shell-rail-width) minmax(0, 1fr);
+  }
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+
+.main {
+  grid-area: main;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background-color: var(--color-canvas);
+}
+
+.main:focus {
+  outline: none;
+}
+
+.skipLink {
+  position: fixed;
+  top: var(--space-xs);
+  left: var(--space-xs);
+  z-index: var(--z-toast);
+  padding: var(--space-xs) var(--space-md);
+  font-weight: var(--weight-semibold);
+  color: var(--color-on-brand);
+  background-color: var(--color-brand);
+  border-radius: var(--radius-md);
+  transform: translateY(calc(-100% - var(--space-md)));
+  transition: var(--transition-transform);
+}
+
+.skipLink:focus {
+  transform: none;
+}

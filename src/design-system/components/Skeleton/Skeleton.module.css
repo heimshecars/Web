@@ -1,0 +1,43 @@
+.skeleton {
+  display: block;
+  background-color: var(--color-skeleton);
+  background-image: linear-gradient(
+    90deg,
+    var(--color-skeleton) 0%,
+    var(--color-skeleton-shine) 50%,
+    var(--color-skeleton) 100%
+  );
+  background-size: 200% 100%;
+  border-radius: var(--radius-sm);
+  animation: var(--animate-shimmer);
+}
+
+.skeleton[data-shape="text"] {
+  height: var(--skeleton-text-height);
+  margin-block: calc((1lh - var(--skeleton-text-height)) / 2);
+}
+
+.skeleton[data-shape="control"] {
+  height: var(--control-height-md);
+  border-radius: var(--radius-md);
+}
+
+.skeleton[data-shape="circle"] {
+  width: var(--avatar-md);
+  height: var(--avatar-md);
+  border-radius: var(--radius-full);
+}
+
+.skeleton[data-shape="block"] { border-radius: var(--radius-lg); }
+.skeleton[data-height="sm"] { height: var(--skeleton-block-sm); }
+.skeleton[data-height="md"] { height: var(--skeleton-block-md); }
+.skeleton[data-height="lg"] { height: var(--skeleton-block-lg); }
+
+.skeleton[data-width="full"] { width: 100%; }
+.skeleton[data-width="3/4"] { width: 75%; }
+.skeleton[data-width="1/2"] { width: 50%; }
+.skeleton[data-width="1/4"] { width: 25%; }
+.skeleton[data-width="xs"] { width: var(--width-xs); }
+.skeleton[data-width="sm"] { width: var(--width-sm); }
+.skeleton[data-width="md"] { width: var(--width-md); }
+.skeleton[data-width="lg"] { width: var(--width-lg); }

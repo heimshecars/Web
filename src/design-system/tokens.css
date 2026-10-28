@@ -1,0 +1,295 @@
+/*
+ * ─────────────────────────────────────────────────────────────────────────
+ *  HEIMSHE CARS — DESIGN TOKENS
+ *  The ONE place where raw colours, sizes, fonts, radii, shadows and
+ *  breakpoints are written. Every other file uses var(--token) only —
+ *  this is enforced by `npm run lint`.
+ *
+ *  Change a value here → it changes everywhere, in Web and in Phone.
+ *  (Phone receives this folder via `npm run ds:sync`.)
+ *
+ *  Animations (durations, easings, keyframes) live in animations.css.
+ * ─────────────────────────────────────────────────────────────────────────
+ */
+
+/* Breakpoints — use as `@media (--bp-md) { … }` in any CSS file. */
+@custom-media --bp-sm (width >= 40rem);
+@custom-media --bp-md (width >= 48rem);
+@custom-media --bp-lg (width >= 64rem);
+@custom-media --bp-xl (width >= 80rem);
+@custom-media --bp-below-sm (width < 40rem);
+@custom-media --bp-below-md (width < 48rem);
+@custom-media --bp-below-lg (width < 64rem);
+
+:root {
+  /* ═══ 1. PALETTE ═══════════════════════════════════════════════════════
+   * Raw colour ramps. Components never use these directly — they use the
+   * semantic tokens in section 2. To re-brand, change the ramps.
+   *
+   * Petrol  — the brand. Deep blue-teal.
+   * Signal  — the accent. Taxi-light amber.
+   * Sand    — warm neutrals for the canvas, surfaces and borders.
+   * Ink     — cool near-black for text.
+   */
+  --petrol-50: oklch(97.5% 0.013 222deg);
+  --petrol-100: oklch(93.5% 0.03 222deg);
+  --petrol-150: oklch(93.2% 0.022 222deg);
+  --petrol-200: oklch(89.8% 0.032 222deg);
+  --petrol-300: oklch(83% 0.063 222deg);
+  --petrol-400: oklch(74% 0.084 222deg);
+  --petrol-500: oklch(58% 0.12 222deg);
+  --petrol-600: oklch(50% 0.095 222deg);
+  --petrol-700: oklch(44.5% 0.088 222deg);
+  --petrol-800: oklch(42% 0.08 222deg);
+  --petrol-900: oklch(38.5% 0.071 222deg);
+  --petrol-950: oklch(30% 0.055 222deg);
+  --signal-50: oklch(97.5% 0.019 78deg);
+  --signal-100: oklch(95% 0.045 78deg);
+  --signal-200: oklch(90% 0.068 75deg);
+  --signal-300: oklch(85% 0.12 75deg);
+  --signal-400: oklch(79% 0.15 75deg);
+  --signal-500: oklch(72% 0.15 70deg);
+  --signal-700: oklch(45% 0.1 62deg);
+  --sand-0: oklch(99.5% 0.004 80deg);
+  --sand-50: oklch(97.6% 0.008 80deg);
+  --sand-100: oklch(96.2% 0.011 80deg);
+  --sand-150: oklch(94.2% 0.013 78deg);
+  --sand-200: oklch(89% 0.014 75deg);
+  --sand-300: oklch(78% 0.02 75deg);
+  --sand-400: oklch(64% 0.022 75deg);
+  --ink-400: oklch(56% 0.02 230deg);
+  --ink-600: oklch(46% 0.024 232deg);
+  --ink-900: oklch(24% 0.03 235deg);
+  --green-100: oklch(95% 0.035 158deg);
+  --green-600: oklch(52% 0.12 158deg);
+  --green-800: oklch(42% 0.1 158deg);
+  --orange-100: oklch(95.5% 0.035 55deg);
+  --orange-500: oklch(70% 0.16 52deg);
+  --orange-800: oklch(47% 0.13 42deg);
+  --red-100: oklch(95.5% 0.025 25deg);
+  --red-600: oklch(53% 0.19 25deg);
+  --red-700: oklch(46% 0.17 25deg);
+  --blue-100: oklch(95% 0.025 250deg);
+  --blue-600: oklch(52% 0.13 250deg);
+  --blue-800: oklch(44% 0.12 250deg);
+  --violet-100: oklch(95.5% 0.03 295deg);
+  --violet-600: oklch(52% 0.15 295deg);
+  --violet-800: oklch(45% 0.15 295deg);
+
+  /* ═══ 2. SEMANTIC COLOURS ══════════════════════════════════════════════
+   * What components use. Every text/background pair below meets WCAG AA.
+   */
+
+  /* Surfaces */
+  --color-canvas: var(--sand-100); /* page background behind content */
+  --color-surface: var(--sand-0); /* cards, tables, inputs, dialogs */
+  --color-surface-sunken: var(--sand-50); /* table headers, wells */
+  --color-surface-hover: var(--sand-150);
+  --color-chrome: var(--petrol-150); /* header + sidebar */
+  --color-chrome-hover: var(--petrol-200);
+  --color-chrome-border: var(--petrol-200);
+  --color-overlay: oklch(24% 0.03 235deg / 45%); /* behind dialogs */
+
+  /* Text */
+  --color-text: var(--ink-900);
+  --color-text-muted: var(--ink-600);
+  --color-text-subtle: var(--ink-400); /* placeholders, disabled */
+  --color-text-inverse: var(--sand-0);
+
+  /* Borders */
+  --color-border: var(--sand-200);
+  --color-border-strong: var(--sand-300);
+  --color-border-control: var(--sand-400); /* input outlines (3:1) */
+
+  /* Brand */
+  --color-brand: var(--petrol-600);
+  --color-brand-hover: var(--petrol-700);
+  --color-brand-active: var(--petrol-900);
+  --color-brand-soft: var(--petrol-100);
+  --color-brand-text: var(--petrol-800);
+  --color-on-brand: var(--sand-0);
+
+  /* Accent */
+  --color-accent: var(--signal-400);
+  --color-accent-hover: var(--signal-500);
+  --color-accent-soft: var(--signal-100);
+  --color-accent-text: var(--signal-700);
+  --color-on-accent: var(--ink-900);
+
+  /* Status */
+  --color-success: var(--green-600);
+  --color-success-soft: var(--green-100);
+  --color-success-text: var(--green-800);
+  --color-warning: var(--orange-500);
+  --color-warning-soft: var(--orange-100);
+  --color-warning-text: var(--orange-800);
+  --color-danger: var(--red-600);
+  --color-danger-hover: var(--red-700);
+  --color-danger-soft: var(--red-100);
+  --color-danger-text: var(--red-700);
+  --color-info: var(--blue-600);
+  --color-info-soft: var(--blue-100);
+  --color-info-text: var(--blue-800);
+  --color-violet: var(--violet-600);
+  --color-violet-soft: var(--violet-100);
+  --color-violet-text: var(--violet-800);
+  --color-on-status: var(--sand-0);
+
+  /* Interaction */
+  --color-focus-ring: var(--petrol-500);
+  --color-selection: var(--signal-200);
+  --color-skeleton: var(--sand-150);
+  --color-skeleton-shine: var(--sand-50);
+
+  /* ═══ 3. TYPOGRAPHY ════════════════════════════════════════════════════ */
+  --font-sans: var(--font-brand), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", "Roboto Mono", monospace;
+
+  --text-2xs: 0.6875rem; /* 11 */
+  --text-xs: 0.75rem; /* 12 */
+  --text-sm: 0.875rem; /* 14 */
+  --text-md: 1rem; /* 16 */
+  --text-lg: 1.125rem; /* 18 */
+  --text-xl: 1.375rem; /* 22 */
+  --text-2xl: 1.75rem; /* 28 */
+  --text-3xl: 2.25rem; /* 36 */
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-heavy: 800;
+
+  --leading-none: 1;
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: 1.5;
+
+  --tracking-tight: -0.015em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.06em;
+
+  /* ═══ 4. SPACING ═══════════════════════════════════════════════════════ */
+  --space-3xs: 0.125rem; /* 2 */
+  --space-2xs: 0.25rem; /* 4 */
+  --space-xs: 0.5rem; /* 8 */
+  --space-sm: 0.75rem; /* 12 */
+  --space-md: 1rem; /* 16 */
+  --space-lg: 1.5rem; /* 24 */
+  --space-xl: 2rem; /* 32 */
+  --space-2xl: 3rem; /* 48 */
+  --space-3xl: 4rem; /* 64 */
+
+  /* ═══ 5. SHAPE ═════════════════════════════════════════════════════════ */
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 999rem;
+
+  --hairline: 1px;
+  --border-width: var(--hairline);
+  --border-width-thick: 2px;
+  --indicator-width: 3px;
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+
+  --shadow-xs: 0 1px 2px oklch(24% 0.03 235deg / 6%);
+  --shadow-sm: 0 1px 3px oklch(24% 0.03 235deg / 8%), 0 1px 2px oklch(24% 0.03 235deg / 4%);
+  --shadow-md: 0 4px 12px oklch(24% 0.03 235deg / 8%), 0 2px 4px oklch(24% 0.03 235deg / 4%);
+  --shadow-lg: 0 16px 40px oklch(24% 0.03 235deg / 16%), 0 4px 12px oklch(24% 0.03 235deg / 8%);
+  --shadow-indicator: inset var(--indicator-width) 0 0 var(--color-accent);
+  --shadow-indicator-top: inset 0 var(--indicator-width) 0 var(--color-accent);
+
+  --opacity-disabled: 0.5;
+
+  /* ═══ 6. SIZES ═════════════════════════════════════════════════════════ */
+  --control-height-sm: 2rem;
+  --control-height-md: 2.5rem;
+  --control-height-lg: 3rem;
+  --control-padding-sm: var(--space-xs);
+  --control-padding-md: var(--space-sm);
+  --control-padding-lg: var(--space-md);
+  --switch-width: 2.25rem;
+  --switch-height: 1.25rem;
+  --checkbox-size: 1.125rem;
+
+  --icon-xs: 0.875rem;
+  --icon-sm: 1rem;
+  --icon-md: 1.25rem;
+  --icon-lg: 1.5rem;
+  --icon-xl: 2rem;
+  --icon-stroke: 1.75;
+
+  --avatar-sm: 1.75rem;
+  --avatar-md: 2.25rem;
+  --avatar-lg: 3rem;
+
+  --spinner-sm: 1rem;
+  --spinner-md: 1.5rem;
+  --spinner-lg: 2.5rem;
+  --spinner-stroke: 2px;
+
+  --dot-size: 0.5rem;
+  --progress-height: 0.5rem;
+  --skeleton-text-height: 0.75em;
+  --skeleton-block-sm: 3rem;
+  --skeleton-block-md: 6rem;
+  --skeleton-block-lg: 12rem;
+  --empty-icon-size: 3.5rem;
+  --underline-offset: 0.2em;
+
+  /* Readable widths */
+  --measure-prose: 65ch;
+  --measure-narrow: 28rem;
+  --measure-dialog: 32rem;
+
+  /* Fixed widths — table columns & skeletons */
+  --width-xs: 4rem;
+  --width-sm: 7rem;
+  --width-md: 11rem;
+  --width-lg: 16rem;
+
+  /* Auto-fit grid minimum column widths */
+  --grid-min-xs: 8rem;
+  --grid-min-sm: 12rem;
+  --grid-min-md: 16rem;
+  --grid-min-lg: 22rem;
+
+  /* ═══ 7. LAYOUT (app shell) ════════════════════════════════════════════ */
+  --shell-header-height: 3.75rem;
+  --shell-sidebar-width: 15rem;
+  --shell-rail-width: 4.5rem;
+  --shell-tabbar-height: 4rem;
+  --content-max-width: 80rem;
+  --content-padding: var(--space-lg);
+
+  /* ═══ 8. LAYERS ════════════════════════════════════════════════════════ */
+  --z-base: 0;
+  --z-raised: 1;
+  --z-sticky: 10;
+  --z-shell: 20;
+  --z-overlay: 40;
+  --z-dialog: 50;
+  --z-toast: 60;
+}
+
+/*
+ * Touch density — for the driver tablets (Phone repo sets
+ * <html data-density="touch">). Bigger hit targets, same look.
+ */
+:root[data-density="touch"] {
+  --control-height-sm: 2.5rem;
+  --control-height-md: 3rem;
+  --control-height-lg: 3.5rem;
+  --control-padding-md: var(--space-md);
+  --control-padding-lg: var(--space-lg);
+  --switch-width: 3rem;
+  --switch-height: 1.75rem;
+  --checkbox-size: 1.5rem;
+  --icon-md: 1.375rem;
+  --icon-lg: 1.75rem;
+  --shell-rail-width: 6rem;
+  --content-padding: var(--space-md);
+}

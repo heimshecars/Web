@@ -1,0 +1,46 @@
+.dialog {
+  width: min(var(--measure-dialog), calc(100% - var(--space-xl)));
+  max-height: calc(100dvh - var(--space-2xl));
+  padding: 0;
+  margin: auto;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+.dialog[open] {
+  animation: var(--animate-dialog-in);
+}
+
+.dialog::backdrop {
+  background-color: var(--color-overlay);
+  animation: var(--animate-backdrop-in);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+}
+
+.header {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.body {
+  padding-block: var(--space-xs);
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  justify-content: flex-end;
+  padding-top: var(--space-xs);
+}

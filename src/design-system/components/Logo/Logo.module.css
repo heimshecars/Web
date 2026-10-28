@@ -1,0 +1,64 @@
+.logo {
+  --logo-size: var(--control-height-sm);
+
+  display: inline-flex;
+  gap: var(--space-xs);
+  align-items: center;
+}
+
+.logo[data-size="sm"] { --logo-size: var(--avatar-sm); }
+.logo[data-size="lg"] { --logo-size: var(--control-height-lg); }
+
+.mark {
+  position: relative;
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: var(--logo-size);
+  height: var(--logo-size);
+  font-size: var(--text-md);
+  font-weight: var(--weight-heavy);
+  line-height: var(--leading-none);
+  color: var(--color-on-brand);
+  background-color: var(--color-brand);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.logo[data-size="lg"] .mark {
+  font-size: var(--text-xl);
+  border-radius: var(--radius-lg);
+}
+
+.signal {
+  position: absolute;
+  top: calc(var(--space-3xs) * -1);
+  right: calc(var(--space-3xs) * -1);
+  width: var(--dot-size);
+  height: var(--dot-size);
+  background-color: var(--color-accent);
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 0 var(--border-width-thick) var(--color-chrome);
+}
+
+.wordmark {
+  font-size: var(--text-md);
+  font-weight: var(--weight-heavy);
+  line-height: var(--leading-none);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.logo[data-size="lg"] .wordmark {
+  font-size: var(--text-xl);
+}
+
+.srOnly {
+  position: absolute;
+  width: var(--hairline);
+  height: var(--hairline);
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

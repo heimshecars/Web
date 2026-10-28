@@ -1,0 +1,17 @@
+.wrap {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.spinner {
+  display: block;
+  width: var(--spinner-md);
+  height: var(--spinner-md);
+  border: var(--spinner-stroke) solid currentcolor;
+  border-top-color: transparent;
+  border-radius: var(--radius-full);
+  animation: var(--animate-spin);
+}
+
+.spinner[data-size="sm"] { width: var(--spinner-sm); height: var(--spinner-sm); }
+.spinner[data-size="lg"] { width: var(--spinner-lg); height: var(--spinner-lg); }
